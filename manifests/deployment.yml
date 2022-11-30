@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: snginx 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snginx
+  template:
+    metadata:
+      labels:
+        app: snginx 
+    spec:
+      containers:
+        - name: snginx 
+          image: myregistrylti.azurecr.io/snginx
+          ports:
+          - containerPort: 80
